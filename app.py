@@ -32,6 +32,54 @@ with st.sidebar:
     st.subheader("Omnichannel Delivery")
     channel = st.selectbox("Simulate Channel", ["🌐 Web Interface", "💬 WhatsApp"])
 
+# --- Floating Widget Simulation ---
+if channel == "💬 WhatsApp":
+    floating_html = """
+    <style>
+    .floating-chat {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        z-index: 1000;
+        cursor: pointer;
+    }
+    </style>
+    <div class="floating-chat" title="WhatsApp Channel">💬</div>
+    """
+else:
+    floating_html = """
+    <style>
+    .floating-chat {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        z-index: 1000;
+        cursor: pointer;
+    }
+    </style>
+    <div class="floating-chat" title="Web Chatbot">🤖</div>
+    """
+st.markdown(floating_html, unsafe_allow_html=True)
 # Initialize session state for chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
