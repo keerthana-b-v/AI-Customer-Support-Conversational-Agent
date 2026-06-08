@@ -16,80 +16,42 @@ from langchain_core.prompts import ChatPromptTemplate
 # Load environment variables
 load_dotenv()
 
+# --- Custom CSS to make it look like a Chatbot UI ---
+st.markdown("""
+<style>
+    /* Constrain the max width of the main content to look like a centralized chat window */
+    .block-container {
+        max-width: 700px;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    /* Add a subtle background color to make it feel like a chat app */
+    .stApp {
+        background-color: #f8f9fa;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Streamlit App Title
-st.title("🛍️ E-Commerce Customer Support Bot")
+st.title("🛍️ E-Commerce Customer Support")
 st.write("Ask me anything about our shipping, returns, and warranties!")
 
-# --- Sidebar: CRM & Omnichannel Simulation ---
+# --- Sidebar: CRM Context Simulation ---
 with st.sidebar:
-    st.header("🏢 Kapture CX Simulation")
-    st.write("These settings simulate enterprise context injection.")
+    st.header("🏢 Simulation Settings")
+    st.write("These settings simulate enterprise CRM context injection.")
     
-    st.subheader("CRM Context (Customer 360)")
+    st.subheader("Customer 360")
     customer_name = st.text_input("Customer Name", value="John Doe")
     order_id = st.text_input("Order ID", value="ORD-9921")
-    
-    st.subheader("Omnichannel Delivery")
-    channel = st.selectbox("Simulate Channel", ["🌐 Web Interface", "💬 WhatsApp"])
 
-# --- Floating Widget Simulation ---
-if channel == "💬 WhatsApp":
-    floating_html = """
-    <style>
-    .floating-chat {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        background-color: #25D366;
-        color: white;
-        border-radius: 50px;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        z-index: 1000;
-        cursor: pointer;
-    }
-    </style>
-    <div class="floating-chat" title="WhatsApp Channel">💬</div>
-    """
-else:
-    floating_html = """
-    <style>
-    .floating-chat {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        background-color: #007bff;
-        color: white;
-        border-radius: 50px;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-        z-index: 1000;
-        cursor: pointer;
-    }
-    </style>
-    <div class="floating-chat" title="Web Chatbot">🤖</div>
-    """
-st.markdown(floating_html, unsafe_allow_html=True)
 # Initialize session state for chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Determine current avatar
-bot_avatar = "🤖" if channel == "🌐 Web Interface" else "💬"
-
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    avatar = bot_avatar if message["role"] == "assistant" else "👤"
+    avatar = "🤖" if message["role"] == "assistant" else "👤"
     with st.chat_message(message["role"], avatar=avatar):
         st.markdown(message["content"])
 
@@ -118,9 +80,7 @@ def setup_rag_pipeline():
         "You must ONLY answer questions based on the provided context (shipping, returns, and warranties). "
         "If the user asks a question that is not covered in the context, or asks to speak to a human, you must say: "
         "'I specialize in shipping, returns, and warranties. For other inquiries, please contact our support team at support@company.com or type CREATE TICKET to escalate this to a human agent.' "
-        "If the Channel is '💬 WhatsApp', you must keep your answers extremely short, use bullet points, and use emojis. "
         "Do not guess or make up answers.\n\n"
-        "Channel: {channel}\n\n"
         "Context: {context}"
     )
 
@@ -166,7 +126,7 @@ if prompt := st.chat_input("Ask a question (e.g., What is your return policy?)")
         st.session_state.messages.append({"role": "user", "content": prompt})
         
         escalation_response = f"🎫 **Ticket Created!** Your support ticket ID is `{ticket_id}`. A human agent will review your chat history and contact you shortly."
-        st.chat_message("assistant", avatar=bot_avatar).markdown(escalation_response)
+        st.chat_message("assistant", avatar="🤖").markdown(escalation_response)
         st.session_state.messages.append({"role": "assistant", "content": escalation_response})
         st.stop()
 
@@ -175,8 +135,8 @@ if prompt := st.chat_input("Ask a question (e.g., What is your return policy?)")
         writer = csv.writer(f)
         # Write header if file is empty
         if f.tell() == 0:
-            writer.writerow(['Timestamp', 'UserQuery', 'Channel', 'CustomerName'])
-        writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), prompt, channel, customer_name])
+            writer.writerow(['Timestamp', 'UserQuery', 'CustomerName'])
+        writer.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), prompt, customer_name])
 
     # Display user message in chat message container
     st.chat_message("user", avatar="👤").markdown(prompt)
@@ -184,13 +144,12 @@ if prompt := st.chat_input("Ask a question (e.g., What is your return policy?)")
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     # Get bot response
-    with st.chat_message("assistant", avatar=bot_avatar):
+    with st.chat_message("assistant", avatar="🤖"):
         with st.spinner("Thinking..."):
             response = rag_chain.invoke({
                 "input": prompt,
                 "customer_name": customer_name,
-                "order_id": order_id,
-                "channel": channel
+                "order_id": order_id
             })
             answer = response["answer"]
             st.markdown(answer)
