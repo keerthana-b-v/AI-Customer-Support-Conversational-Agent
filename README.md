@@ -65,3 +65,34 @@ Simply open the `index.html` file in any web browser! Alternatively, serve it lo
 python -m http.server 8080
 ```
 Then visit `http://localhost:8080` in your browser.
+
+---
+
+## 🚀 Production Deployment Guide
+
+This project is structured for easy cloud deployment using free-tier services.
+
+### 1. Deploy the Backend (FastAPI) on Render
+1. Create a free account at [Render](https://render.com).
+2. Create a new **Web Service** and connect this GitHub repository.
+3. Configure the following build settings:
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python -m uvicorn main:app --host 0.0.0.0 --port 10000`
+4. Under **Advanced**, add your environment variables:
+   - Key: `GROQ_API_KEY`, Value: `[Your Actual Groq API Key]`
+5. Click **Deploy Web Service**. Once running, copy your live backend URL (e.g., `https://your-app.onrender.com`).
+
+### 2. Connect Frontend to the Live Backend
+1. Open `app.js` and update the first line with your live Render backend URL:
+   ```javascript
+   const API_URL = 'https://your-app.onrender.com';
+   ```
+2. Commit and push this change to your GitHub repository.
+
+### 3. Deploy the Frontend on GitHub Pages
+1. Go to your repository settings on GitHub.
+2. Click **Pages** in the left sidebar.
+3. Under **Build and deployment**, set the source to **Deploy from a branch**.
+4. Set the branch to `main` and folder to `/ (root)`, then click **Save**.
+5. Your live frontend will be active at `https://[your-username].github.io/[your-repo-name]/` in a few moments!
