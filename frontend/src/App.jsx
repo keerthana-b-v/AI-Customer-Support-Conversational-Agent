@@ -88,7 +88,14 @@ function App() {
       });
 
       if (!response.ok) {
-        throw new Error('Server returned an error');
+        let errMessage = `HTTP ${response.status} Error`;
+        try {
+          const errData = await response.json();
+          if (errData && errData.detail) {
+            errMessage = errData.detail;
+          }
+        } catch (_) {}
+        throw new Error(errMessage);
       }
 
       const reader = response.body.getReader();
@@ -152,7 +159,7 @@ function App() {
         const copy = [...prev];
         copy[copy.length - 1] = { 
           role: 'assistant', 
-          content: '⚠️ System Error: Failed to connect to the backend. Please ensure the FastAPI server is running.' 
+          content: `⚠️ System Error: ${error.message}` 
         };
         return copy;
       });

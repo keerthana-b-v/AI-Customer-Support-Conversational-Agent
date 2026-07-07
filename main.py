@@ -292,6 +292,8 @@ async def chat_endpoint(request: ChatRequest, fastapi_req: Request):
         try:
             setup_rag_pipeline()
         except Exception as e:
+            import traceback
+            traceback.print_exc()
             raise HTTPException(status_code=500, detail=f"Error initializing RAG pipeline: {e}")
 
     # IP-based Rate Limiter (Denial of Service & API Quota Protection)
