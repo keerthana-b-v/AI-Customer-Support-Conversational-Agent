@@ -173,13 +173,7 @@ def setup_rag_pipeline():
     question_answer_chain = create_stuff_documents_chain(llm, prompt)
     rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
-# Initialize RAG pipeline on application startup
-@app.on_event("startup")
-def startup_event():
-    try:
-        setup_rag_pipeline()
-    except Exception as e:
-        raise RuntimeError(f"Error initializing RAG pipeline: {e}")
+
 
 @app.get("/")
 def read_root():
@@ -251,7 +245,10 @@ def check_previous_frustration(session_id: str) -> bool:
 async def chat_endpoint(request: ChatRequest, fastapi_req: Request):
     global rag_chain, session_memory
     if not rag_chain:
-        raise HTTPException(status_code=500, detail="RAG pipeline is not initialized.")
+        try:
+            setup_rag_pipeline()
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error initializing RAG pipeline: {e}")
 
     # IP-based Rate Limiter (Denial of Service & API Quota Protection)
     client_ip = fastapi_req.client.host or "unknown"
