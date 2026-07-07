@@ -1,5 +1,28 @@
-1. All electronics come with a 1-year manufacturer warranty covering defects.
-2. The warranty does not cover accidental damage, water damage, or normal wear and tear.
-3. To file a warranty claim, customers must provide the original receipt and a photo of the defect.
-4. Replacements under warranty will be shipped free of charge.
-5. Unauthorized repairs will immediately void the warranty.
+=========================================
+GLOBAL E-COMMERCE RETAIL CO. - OFFICIAL MANUFACTURER LIMITED WARRANTY POLICY
+=========================================
+Last Updated: January 1, 2026
+
+1. Warranty Coverage Scope and Duration
+We stand behind the quality of our engineering and products. All consumer electronics and mechanical items purchased directly from our official online store or authorized dealers are covered by a one (1) year limited manufacturer warranty. The warranty period begins exactly on the date of purchase or the date of delivery (whichever is documented later). This warranty covers all manufacturing defects in materials, components, and workmanship. If a hardware defect occurs and a valid claim is received within the warranty period, we will either repair the defect, exchange the item for a brand-new unit, or issue store credit.
+
+2. Clear Exclusions and Void Conditions
+This limited warranty is non-transferable and only applies to the original purchaser of the product. The warranty does not cover:
+* Accidental physical damage, drops, dents, cosmetic scratches, structural bends, or broken screens.
+* Liquid or water damage of any kind, including submersion, moisture ingress, or exposure to extreme weather.
+* Damage caused by normal wear and tear, battery degradation over time, or usage outside of recommended guidelines.
+* Products used for commercial, rental, or industrial purposes rather than private residential use.
+* Any hardware modifications or unauthorized repairs performed by a third-party repair shop or the user. Opening the product shell or tampering with the internal circuitry will immediately void this warranty.
+
+3. Claims Process and Filing Requirements
+To file a formal warranty claim, please contact our customer support desk or submit a ticket under the warranty claim section on our website. You must provide the following documentation to qualify for a review:
+* The original digital or printed invoice/receipt showing the date of purchase, retailer name, and product price.
+* A clear photograph or video demonstration highlighting the defect or structural failure.
+* The unique serial number located on the bottom of the device or on the product box.
+Once submitted, our technical assessment team will review the claim within three to five (3-5) business days and email you with approval or rejection details.
+
+4. Replacement Shipping and Logistics Fees
+If your warranty claim is approved, we will provide you with a prepaid shipping label to return the defective unit to our repair center. We will cover all shipping costs associated with returning the defective item and shipping the replacement or repaired unit back to you. If the technical inspection team determines that the product was damaged due to user abuse (rather than a manufacturing defect), the claim will be denied, and the customer will be responsible for a return shipping fee of $15.00 to receive their original product back.
+
+5. Extended Warranty Options and Registration
+Customers have the option to purchase an extended two-year (2-year) care package within thirty (30) days of their original purchase. Registering your product online at registry.company.com within fourteen (14) days of delivery will grant you an additional ninety (90) days of limited warranty coverage for free. For any questions regarding warranty claims, registration status, or service extensions, please contact our dedicated warranty division at warranty@company.com.

@@ -1,5 +1,22 @@
-1. Returns are accepted within 30 days of purchase.
-2. The item must be unused and in original packaging.
-3. Customers must pay for return shipping unless the item arrived damaged.
-4. Refunds take 5-7 business days to process back to the original credit card.
-5. Clearance items are final sale and cannot be returned.
+=========================================
+GLOBAL E-COMMERCE RETAIL CO. - OFFICIAL RETURN & REFUND POLICY
+=========================================
+Last Updated: January 1, 2026
+
+1. Standard Return Window and Eligibility
+We want you to be fully satisfied with your purchase. Standard items purchased from our store are eligible for return within thirty (30) calendar days from the date of purchase or delivery, whichever is later. To qualify for a full refund back to your original payment method, the returned items must be in brand-new, unused, unwashed condition, with all original tags, labels, and product packaging fully intact. Items returned with signs of wear, odor, wash, or alterations will be rejected or subject to a fifty percent (50%) restocking fee at our sole discretion.
+
+2. Return Methods and Shipping Fees
+Customers are responsible for the return shipping costs unless the item arrived damaged, defective, or we made a shipment error. You can initiate a return by logging into your account, navigating to your orders page, and requesting a prepaid shipping label. The cost of the return shipping label (flat rate of $5.99) will be deducted from your final refund amount. Alternatively, you may drop off eligible returns at any of our authorized local partner retail hubs free of charge. Please present the QR code generated in your account to the store associate at drop-off.
+
+3. Processing Times and Refund Issuance
+Once your return package arrives at our central fulfillment warehouse, it will undergo a manual inspection by our quality assurance team. This verification process typically takes between three to five (3-5) business days. Once the return is approved, we will issue a refund back to your original payment method. Depending on your financial institution or credit card issuer, it may take an additional five to seven (5-7) business days for the funds to reflect in your account. You will receive an automated email confirmation once the refund has been processed.
+
+4. Exclusions and Final Sale Items
+Certain product categories are strictly excluded from our standard return policy due to safety, hygiene, or liquidation terms:
+* Clearance and Liquidated items marked as "Final Sale" cannot be returned, exchanged, or refunded under any circumstances.
+* Personal hygiene products, undergarments, swimwear (if the protective hygiene liner is removed), and cosmetics are final sale unless unopened in original shrink-wrap.
+* Gift cards, e-gift vouchers, and downloadable digital software or assets are completely non-refundable and non-exchangeable.
+
+5. Damaged, Defective, or Incorrect Shipments
+If you receive an item that is broken, structurally defective, or completely different from what you ordered, please contact our support team within forty-eight (48) hours of delivery. We will issue a prepaid return label and ship out a replacement unit immediately at no additional cost to you. If a replacement unit is unavailable, we will issue a full refund including the original shipping fees. Please provide clear photographic evidence of the damage or mismatch when submitting your support ticket.
