@@ -15,9 +15,7 @@ from dotenv import load_dotenv
 
 from langchain_community.document_loaders import TextLoader, DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-import requests
-from langchain_core.embeddings import Embeddings
-from langchain_community.vectorstores import FAISS
+from langchain_community.retrievers import BM25Retriever
 from langchain_groq import ChatGroq
 from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
@@ -63,72 +61,7 @@ def init_db():
 
 init_db()
 
-class HostedHuggingFaceEmbeddings(Embeddings):
-    def __init__(self, model_name: str = "sentence-transformers/all-MiniLM-L6-v2", api_key: str = None):
-        self.model_name = model_name
-        self.api_key = api_key
-        self.api_url = f"https://api-inference.huggingface.co/models/{model_name}"
 
-    def embed_documents(self, texts: list[str]) -> list[list[float]]:
-        headers = {}
-        if self.api_key:
-            headers["Authorization"] = f"Bearer {self.api_key}"
-        
-        response = requests.post(
-            self.api_url, 
-            headers=headers, 
-            json={"inputs": texts, "options": {"wait_for_model": True}}
-        )
-        res = response.json()
-        
-        if isinstance(res, dict) and "error" in res:
-            raise ValueError(f"HuggingFace API Error: {res['error']}")
-            
-        embeddings = []
-        for item in res:
-            # Check if HuggingFace returned token-level embeddings (3D list)
-            if isinstance(item, list) and len(item) > 0 and isinstance(item[0], list):
-                # Perform Mean Pooling over the token embeddings to get a single vector
-                num_tokens = len(item)
-                dim = len(item[0])
-                mean_vec = [0.0] * dim
-                for token_vec in item:
-                    for d in range(dim):
-                        mean_vec[d] += token_vec[d]
-                mean_vec = [v / num_tokens for v in mean_vec]
-                embeddings.append(mean_vec)
-            else:
-                embeddings.append(item)
-        return embeddings
-
-    def embed_query(self, text: str) -> list[float]:
-        headers = {}
-        if self.api_key:
-            headers["Authorization"] = f"Bearer {self.api_key}"
-        
-        response = requests.post(
-            self.api_url, 
-            headers=headers, 
-            json={"inputs": [text], "options": {"wait_for_model": True}}
-        )
-        res = response.json()
-        
-        if isinstance(res, dict) and "error" in res:
-            raise ValueError(f"HuggingFace API Error: {res['error']}")
-            
-        if isinstance(res, list) and len(res) > 0:
-            item = res[0]
-            if isinstance(item, list) and len(item) > 0 and isinstance(item[0], list):
-                # Mean Pooling
-                num_tokens = len(item)
-                dim = len(item[0])
-                mean_vec = [0.0] * dim
-                for token_vec in item:
-                    for d in range(dim):
-                        mean_vec[d] += token_vec[d]
-                return [v / num_tokens for v in mean_vec]
-            return item
-        return []
 
 # Initialize FastAPI app
 app = FastAPI(title="E-Commerce Support Bot API")
@@ -182,14 +115,9 @@ def setup_rag_pipeline():
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     splits = text_splitter.split_documents(docs)
 
-    # 3. Create embeddings and vector store using hosted HuggingFace Inference API (saves RAM & speeds up start)
-    hf_token = os.environ.get("HF_TOKEN")
-    embeddings = HostedHuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        api_key=hf_token
-    )
-    vectorstore = FAISS.from_documents(splits, embeddings)
-    retriever = vectorstore.as_retriever()
+    # 3. Create BM25 keyword retriever (runs 100% locally with zero API dependencies, DNS calls, or RAM overhead)
+    retriever = BM25Retriever.from_documents(splits)
+    retriever.k = 4
 
     # 4. Setup LLM
     llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
