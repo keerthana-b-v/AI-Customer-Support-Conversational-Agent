@@ -7,12 +7,12 @@ This is a secure, production-patterned Retrieval-Augmented Generation (RAG) cust
 ## 🏗️ Technical Architecture & Systems Flow
 
 This project is built using a modern decoupled architecture:
-
+ 
 *   **Frontend**: A responsive **React (Vite)** single-page application that renders a conversational chat feed, handles real-time Server-Sent Events (SSE) streaming, generates persistent session IDs, and monitors backend online status.
 *   **Backend**: A **FastAPI** web server that hosts streaming endpoints, processes incoming payloads, manages session states in-memory, and interacts with a local SQLite database.
-*   **Vector Search & AI**: **LangChain** orchestrates document loading (`data/*.txt`), text chunking (`RecursiveCharacterTextSplitter`), embedding generation (HuggingFace `all-MiniLM-L6-v2`), and local vector retrieval (**FAISS**). LLM completion is powered by ChatGroq utilizing `llama-3.1-8b-instant`.
+*   **Lexical Retrieval & AI**: **LangChain** orchestrates document loading (`data/*.txt`), text chunking (`RecursiveCharacterTextSplitter`), and local keyword retrieval via an in-memory **rank-bm25** lexical retriever. LLM completion is powered by ChatGroq utilizing `llama-3.1-8b-instant`.
 *   **Database Persistence**: **SQLite** (`.db/support.db`) records ticket data and conversation logs. The database is written inside a hidden directory to isolate changes and prevent local development servers (e.g. VS Code Live Server) from triggering hot-reload loops.
-
+ 
 ```
                          [User Inputs Query]
                                   │
@@ -32,7 +32,7 @@ This project is built using a modern decoupled architecture:
         │ is_injection = true     │ sentiment = frustrated  │ normal query
         ▼                         ▼ OR intent = escalation  ▼
  [Canned Refusal]         [Multi-Turn Frustration]  [Retrieve RAG Context]
- (Blocks LLM calls)       (Logs Ticket to SQLite)    (Queries FAISS Index)
+ (Blocks LLM calls)       (Logs Ticket to SQLite)    (Queries BM25 Index)
         │                         │                         │
         └─────────────────────────┼─────────────────────────┘
                                   │
@@ -43,9 +43,32 @@ This project is built using a modern decoupled architecture:
                                   ▼
                      [React DOM Incremental Render]
 ```
-
+ 
 ---
-
+ 
+## 🔍 Retrieval Strategy & Architectural Rationale
+ 
+To optimize the pipeline for memory, speed, and accuracy, we made several deliberate design decisions:
+ 
+### 1. Multi-Document Indexing & Naive RAG Architecture
+This system follows a **Naive RAG** (Retrieve-and-Generate) flow. The LLM does not perform document lookup. Instead:
+* **Indexed Documents**: During startup, our pipeline reads all three policy documents (`shipping`, `returns`, and `warranty`), chunks them, and builds a **single unified BM25 search index**.
+* **Keyword Matching**: When a user query is made, the search engine indexes across all document chunks simultaneously and extracts the relevant chunks based on keyword matching scores (TF-IDF/BM25).
+* **Generation**: The retrieved text is pasted directly into the system prompt context, where the LLM reasons over the material to generate a response.
+ 
+### 2. Chunk Retrieval Selection (Top-2 Chunks)
+Our chunking configuration uses **1000-character segments** (with a 200-character sliding overlap). Because the source policy files are concise and highly structured:
+* Individual policy terms (e.g., shipping costs or return windows) fit fully inside a single chunk.
+* Retrieving the **top 2 matching chunks** provides a maximum of 2,000 characters of context, which is more than enough to fully cover the user's question without flooding the LLM's context window.
+ 
+### 3. Trade-offs: Skipping MMR and Re-ranking
+We explicitly chose not to implement complex re-ranking (like Cohere) or Maximal Marginal Relevance (MMR) algorithms:
+* **No Re-ranking**: Re-ranking runs a neural cross-encoder over retrieved text to sort relevance. For our small 3-document dataset, this adds 200-500ms of extra latency and heavy processing overhead with zero quality improvements.
+* **No MMR**: MMR filters out chunks with similar text to maximize diversity. In our concise policy sheets, there is minimal duplicate information, making MMR redundant.
+Skipping these features keeps our search retrieval lookup times under 1ms, keeping the RAG pipeline lightweight.
+ 
+---
+ 
 ## 🛡️ Implemented Security & Guardrail Layers
 
 1.  **Double-Layer Prompt Injection Defense**:
