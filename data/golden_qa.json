@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "source_doc": "return_policy.txt",
+    "question": "What is the standard return window for most purchases?",
+    "ideal_answer": "The standard return window is exactly 30 calendar days from the date of confirmed delivery."
+  },
+  {
+    "id": 2,
+    "source_doc": "return_policy.txt",
+    "question": "Are there any loyalty members or product category exceptions that change the standard 30-day return window?",
+    "ideal_answer": "Yes. Electronics, mobile phones, tablets, smart watches, and computers have a shortened 14-calendar-day return window. VIP Platinum Loyalty Members have an extended 60-day return window. Additionally, orders placed between November 1st and December 25th can be returned until January 31st of the following year."
+  },
+  {
+    "id": 3,
+    "source_doc": "return_policy.txt",
+    "question": "Under what circumstances is a restocking fee charged, and what are the specific fee percentages?",
+    "ideal_answer": "Opened or unsealed electronics (laptops, mobile phones, cameras) are subject to a 15% restocking fee. Large furniture items and heavy appliances are subject to a 20% restocking fee."
+  },
+  {
+    "id": 4,
+    "source_doc": "return_policy.txt",
+    "question": "Is domestic return shipping completely free, or is there a processing charge deducted?",
+    "ideal_answer": "Return shipping is free if the customer requests a refund as Store Credit (gift card). If the customer requests a refund to the original payment method, a flat return shipping and processing fee of $5.99 is deducted from the refund."
+  },
+  {
+    "id": 5,
+    "source_doc": "return_policy.txt",
+    "question": "Can physical software and digital downloads be returned?",
+    "ideal_answer": "Physical software, DVDs, video games, and audio CDs cannot be returned once the shrink-wrap or security seal is broken (unless defective, in which case they can be exchanged for an identical copy). Digital downloads, software license keys, e-gift cards, and online course access are strictly non-refundable."
+  },
+  {
+    "id": 6,
+    "source_doc": "return_policy.txt",
+    "question": "What actions does the company take if a returned product fails the quality inspection at the warehouse?",
+    "ideal_answer": "If an item fails inspection, the item will either be returned to the customer at their expense, or a partial store credit (no more than 30% of the item's value) will be offered at the company's discretion."
+  },
+  {
+    "id": 7,
+    "source_doc": "shipping_policy.txt",
+    "question": "What is the order cut-off time for same-day processing, and how long does standard handling take?",
+    "ideal_answer": "Orders placed Monday through Friday before 2:00 PM EST are processed and shipped within 24 to 48 hours. Orders placed after 2:00 PM EST on Friday, or during the weekend, are processed the following Monday."
+  },
+  {
+    "id": 8,
+    "source_doc": "shipping_policy.txt",
+    "question": "At what order value is a signature confirmation mandatory upon delivery?",
+    "ideal_answer": "Mandatory signature confirmation is required upon delivery for orders valued at $200.00 or higher, requiring an adult to be present to sign."
+  },
+  {
+    "id": 9,
+    "source_doc": "shipping_policy.txt",
+    "question": "Can I request expedited, express, or overnight air shipping for delivery to a PO Box or military address?",
+    "ideal_answer": "No. Expedited, Express, and Overnight air shipping options are strictly unavailable for PO Boxes and military addresses (APO/FPO/DPO) because private carriers cannot deliver to them. Only Standard Ground Shipping via USPS is available."
+  },
+  {
+    "id": 10,
+    "source_doc": "shipping_policy.txt",
+    "question": "Under what scan inactivity conditions is a package officially declared 'Lost in Transit'?",
+    "ideal_answer": "A package is considered 'Lost in Transit' if there has been no tracking scan activity for 5 consecutive business days for domestic shipments, or 14 consecutive business days for international shipments."
+  },
+  {
+    "id": 11,
+    "source_doc": "shipping_policy.txt",
+    "question": "What is the standard ground shipping cost for orders that do not meet the $50 free shipping threshold?",
+    "ideal_answer": "For orders below $50.00, a flat shipping fee of $4.99 is applied. Standard ground shipping is free for all orders exceeding a subtotal of $50.00."
+  },
+  {
+    "id": 12,
+    "source_doc": "shipping_policy.txt",
+    "question": "Why can't laptops or products with lithium-ion batteries be shipped via express air methods?",
+    "ideal_answer": "Products containing lithium-ion batteries are classified as hazardous materials (HAZMAT) and under DOT and FAA regulations, they can only be shipped via Ground transportation. Air shipping options (Expedited, Express, Overnight) are unavailable."
+  },
+  {
+    "id": 13,
+    "source_doc": "warranty_policy.txt",
+    "question": "What is the warranty coverage duration for premium brand tools and appliances?",
+    "ideal_answer": "Premium brand tools and appliances are covered by a 5-Year Extended Limited Warranty covering mechanical failure, motor burnouts, and electrical faults under residential operating conditions."
+  },
+  {
+    "id": 14,
+    "source_doc": "warranty_policy.txt",
+    "question": "What specific hardware failures are covered under the standard 1-year electronics warranty?",
+    "ideal_answer": "The standard 1-year electronics warranty covers hardware failure, motherboard defects, screen malfunctions, and internal battery degradation if the capacity drops below 80% of original specification within the first year."
+  },
+  {
+    "id": 15,
+    "source_doc": "warranty_policy.txt",
+    "question": "Are accidental drops, water spills, or environmental damage covered under the standard warranty?",
+    "ideal_answer": "No. The standard warranty strictly excludes accidental damage, drop damage, physical abuse, neglect, improper storage, extreme temperatures, moisture, or liquid submersion."
+  },
+  {
+    "id": 16,
+    "source_doc": "warranty_policy.txt",
+    "question": "How long does a customer have to register a warranty for a product received as a gift?",
+    "ideal_answer": "For gift or retail purchases, the customer must register the product online within 30 days of purchase to receive warranty coverage."
+  },
+  {
+    "id": 17,
+    "source_doc": "warranty_policy.txt",
+    "question": "What is the warranty coverage period for certified refurbished or open-box purchases?",
+    "ideal_answer": "Certified refurbished or open-box items purchased directly from our website are backed by a 90-Day Limited Warranty covering basic functionality."
+  },
+  {
+    "id": 18,
+    "source_doc": "warranty_policy.txt",
+    "question": "If a warranty claim is denied and contested, what are the steps for formal dispute resolution?",
+    "ideal_answer": "The customer must first file a written appeal to appeals@ecommercegroup.com. If the dispute remains unresolved, it shall be settled exclusively through binding arbitration administered by the American Arbitration Association (AAA) in accordance with its Consumer Arbitration Rules."
+  }
+]

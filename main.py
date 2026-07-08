@@ -112,11 +112,15 @@ def setup_rag_pipeline():
     docs = loader.load()
 
     # 2. Split the document into chunks
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = text_splitter.split_documents(docs)
 
+    # Define custom preprocessing function for BM25 to strip punctuation and normalize tokens
+    def custom_preprocess(text: str) -> list[str]:
+        return re.findall(r'\w+', text.lower())
+
     # 3. Create BM25 keyword retriever (runs 100% locally with zero API dependencies, DNS calls, or RAM overhead)
-    retriever = BM25Retriever.from_documents(splits)
+    retriever = BM25Retriever.from_documents(splits, preprocess_func=custom_preprocess)
     retriever.k = 4
 
     # 4. Setup LLM

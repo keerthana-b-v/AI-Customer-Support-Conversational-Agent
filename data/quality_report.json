@@ -1,0 +1,388 @@
+{
+  "summary": {
+    "total_cases": 18,
+    "average_faithfulness": 0.9444444444444442,
+    "average_relevancy": 0.9777777777777776,
+    "average_context_precision": 0.8555555555555556
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "What is the standard return window for most purchases?",
+      "ideal_answer": "The standard return window is exactly 30 calendar days from the date of confirmed delivery.",
+      "generated_answer": "The standard return window for most purchases is exactly 30 calendar days from the date of confirmed delivery.",
+      "source_doc": "return_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is a direct quote from the retrieved context, section 2.1."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question, providing the exact return window for most purchases."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved context is highly relevant and precise for answering the user question, providing the exact return window and eligibility criteria."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "question": "Are there any loyalty members or product category exceptions that change the standard 30-day return window?",
+      "ideal_answer": "Yes. Electronics, mobile phones, tablets, smart watches, and computers have a shortened 14-calendar-day return window. VIP Platinum Loyalty Members have an extended 60-day return window. Additionally, orders placed between November 1st and December 25th can be returned until January 31st of the following year.",
+      "generated_answer": "Yes, there are exceptions to the standard 30-day return window. \n\nElectronics, mobile phones, tablets, smart watches, and computers are subject to a shortened 14-calendar-day return window due to rapid depreciation.\n\nAdditionally, VIP tier level members have extended return windows: \n- Silver tier members get 45 days\n- Gold members get 50 days\n- Platinum members get 60 days\n\nOrders placed between November 1st and December 25th of any calendar year may also be returned until January 31st of the following calendar year, under the Holiday Return Policy extension.",
+      "source_doc": "return_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 0.8,
+          "reason": "The Generated Answer contains some external facts and assumptions, but it is mostly grounded in the provided Context."
+        },
+        "answer_relevancy": {
+          "score": 0.9,
+          "reason": "The Generated Answer directly addresses the User Question and provides relevant information about exceptions to the standard 30-day return window."
+        },
+        "context_precision": {
+          "score": 0.7,
+          "reason": "The retrieved Context is relevant for answering the User Question, but it contains some irrelevant information (e.g., Q11, Q12, Q13, and Q3) and is not entirely precise (e.g., the Holiday Return Policy extension is mentioned, but the specific details are not provided)."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "question": "Under what circumstances is a restocking fee charged, and what are the specific fee percentages?",
+      "ideal_answer": "Opened or unsealed electronics (laptops, mobile phones, cameras) are subject to a 15% restocking fee. Large furniture items and heavy appliances are subject to a 20% restocking fee.",
+      "generated_answer": "A restocking fee is charged under the following circumstances:\n\n- Opened or unsealed electronics (laptops, mobile phones, cameras) are subject to a 15% restocking fee of the original purchase price.\n- Large furniture items and heavy appliances are subject to a 20% restocking fee.\n\nThese fees are due to the costs associated with testing, refurbishing, and repackaging the item for open-box resale.",
+      "source_doc": "return_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 0.8,
+          "reason": "The generated answer is mostly grounded in the provided context, but it does not mention the specific fee percentages for opened electronics and large furniture items."
+        },
+        "answer_relevancy": {
+          "score": 0.9,
+          "reason": "The generated answer directly addresses the user question by providing the circumstances under which a restocking fee is charged."
+        },
+        "context_precision": {
+          "score": 0.7,
+          "reason": "The retrieved context is relevant to the user question, but it contains some irrelevant information, such as the return shipping policy and the comprehensive product warranty policy."
+        }
+      }
+    },
+    {
+      "id": 4,
+      "question": "Is domestic return shipping completely free, or is there a processing charge deducted?",
+      "ideal_answer": "Return shipping is free if the customer requests a refund as Store Credit (gift card). If the customer requests a refund to the original payment method, a flat return shipping and processing fee of $5.99 is deducted from the refund.",
+      "generated_answer": "Domestic return shipping is free if the customer opts for a return label generated through our online return portal, provided the refund is taken as Store Credit (gift card). However, if the customer requests a refund to the original payment method, a flat return shipping and processing fee of $5.99 will be deducted from the final refund amount.",
+      "source_doc": "return_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is a direct quote from the retrieved context, without any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question, providing a clear and complete answer to the query."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved context is mostly relevant to the user question, but it includes some additional information about restocking fees and international returns that is not directly related to the question. However, the context does provide all the necessary information to answer the question accurately."
+        }
+      }
+    },
+    {
+      "id": 5,
+      "question": "Can physical software and digital downloads be returned?",
+      "ideal_answer": "Physical software, DVDs, video games, and audio CDs cannot be returned once the shrink-wrap or security seal is broken (unless defective, in which case they can be exchanged for an identical copy). Digital downloads, software license keys, e-gift cards, and online course access are strictly non-refundable.",
+      "generated_answer": "According to our return policy, physical software cannot be returned once the shrink-wrap or security seal is broken. If defective, it can only be exchanged for an identical replacement copy. \n\nDigital downloads, software license keys, e-gift cards, and online course access are strictly non-refundable once the purchase is complete.",
+      "source_doc": "return_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The Generated Answer strictly adheres to the provided Context, without containing any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The Generated Answer directly and completely addresses the User Question, providing a clear and concise answer."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved Context is highly relevant and precise for answering the User Question, providing specific information about return policies for physical software and digital downloads."
+        }
+      }
+    },
+    {
+      "id": 6,
+      "question": "What actions does the company take if a returned product fails the quality inspection at the warehouse?",
+      "ideal_answer": "If an item fails inspection, the item will either be returned to the customer at their expense, or a partial store credit (no more than 30% of the item's value) will be offered at the company's discretion.",
+      "generated_answer": "If a returned package arrives at our central fulfillment warehouse and fails inspection, our team will contact you. The item will either be sent back to you at your expense, or a partial store credit (no more than 30% of the item's value) will be offered at our discretion.",
+      "source_doc": "return_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The Generated Answer is strictly based on the provided Context, without any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The Generated Answer directly addresses the User Question, providing a clear explanation of the company's actions when a returned product fails quality inspection."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved Context is mostly relevant for answering the User Question, but it contains some unrelated information (e.g., warranty FAQs)."
+        }
+      }
+    },
+    {
+      "id": 7,
+      "question": "What is the order cut-off time for same-day processing, and how long does standard handling take?",
+      "ideal_answer": "Orders placed Monday through Friday before 2:00 PM EST are processed and shipped within 24 to 48 hours. Orders placed after 2:00 PM EST on Friday, or during the weekend, are processed the following Monday.",
+      "generated_answer": "Test Customer, according to our standard processing schedule, orders placed Monday through Friday before our daily cut-off time of 2:00 PM EST are processed and shipped within 24 to 48 hours.",
+      "source_doc": "shipping_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 0.8,
+          "reason": "The answer is mostly grounded in the provided context, but it does not explicitly mention the order cut-off time for same-day processing."
+        },
+        "answer_relevancy": {
+          "score": 0.9,
+          "reason": "The answer directly addresses the user question, providing relevant information about the standard processing schedule."
+        },
+        "context_precision": {
+          "score": 0.7,
+          "reason": "The retrieved context is relevant, but it does not contain specific information about same-day processing or the order cut-off time, which is mentioned in the context but not directly related to the user question."
+        }
+      }
+    },
+    {
+      "id": 8,
+      "question": "At what order value is a signature confirmation mandatory upon delivery?",
+      "ideal_answer": "Mandatory signature confirmation is required upon delivery for orders valued at $200.00 or higher, requiring an adult to be present to sign.",
+      "generated_answer": "Orders valued at $200.00 or higher are subject to mandatory signature confirmation upon delivery to ensure safety. The customer must ensure an adult is present to sign for the package.",
+      "source_doc": "shipping_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is strictly based on the provided context, without any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question, providing the exact information requested."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved context is highly relevant and precise for answering the user question, providing the exact information requested without any irrelevant noise or missing key details."
+        }
+      }
+    },
+    {
+      "id": 9,
+      "question": "Can I request expedited, express, or overnight air shipping for delivery to a PO Box or military address?",
+      "ideal_answer": "No. Expedited, Express, and Overnight air shipping options are strictly unavailable for PO Boxes and military addresses (APO/FPO/DPO) because private carriers cannot deliver to them. Only Standard Ground Shipping via USPS is available.",
+      "generated_answer": "No, you cannot request expedited, express, or overnight air shipping for delivery to a PO Box or military address. According to our policy, these shipping options are strictly unavailable for PO Boxes and military addresses because private carriers (FedEx, UPS) cannot deliver to these locations. Standard Ground Shipping is available to PO Boxes and Military addresses and is delivered via the United States Postal Service (USPS).",
+      "source_doc": "shipping_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The Generated Answer strictly adheres to the provided Context, without containing any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The Generated Answer directly and completely addresses the User Question."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved Context is mostly relevant for answering the User Question, but it includes some additional information about address accuracy and verification, shipping insurance, and weekend delivery that is not directly related to the User Question."
+        }
+      }
+    },
+    {
+      "id": 10,
+      "question": "Under what scan inactivity conditions is a package officially declared 'Lost in Transit'?",
+      "ideal_answer": "A package is considered 'Lost in Transit' if there has been no tracking scan activity for 5 consecutive business days for domestic shipments, or 14 consecutive business days for international shipments.",
+      "generated_answer": "Hello Test Customer. \n\nA package is considered \"Lost in Transit\" if there has been no tracking scan activity for 5 consecutive business days for domestic shipments, or 14 consecutive business days for international shipments.",
+      "source_doc": "shipping_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is a direct quote from the retrieved context, section 6.2. Lost in Transit."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question, providing the exact scan inactivity conditions for a package to be declared 'Lost in Transit'."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved context is mostly relevant, but it includes some unrelated information (sections 4, 5, 6.1, 6.3, and 12). However, the relevant information is clearly marked and easy to find."
+        }
+      }
+    },
+    {
+      "id": 11,
+      "question": "What is the standard ground shipping cost for orders that do not meet the $50 free shipping threshold?",
+      "ideal_answer": "For orders below $50.00, a flat shipping fee of $4.99 is applied. Standard ground shipping is free for all orders exceeding a subtotal of $50.00.",
+      "generated_answer": "For orders below the $50 free shipping threshold, the standard ground shipping cost is a flat fee of $4.99.",
+      "source_doc": "shipping_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is strictly based on the provided context without any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question and provides the exact information requested."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved context is highly relevant and precise for answering the user question, providing detailed information about the standard ground shipping cost for orders below the $50 free shipping threshold."
+        }
+      }
+    },
+    {
+      "id": 12,
+      "question": "Why can't laptops or products with lithium-ion batteries be shipped via express air methods?",
+      "ideal_answer": "Products containing lithium-ion batteries are classified as hazardous materials (HAZMAT) and under DOT and FAA regulations, they can only be shipped via Ground transportation. Air shipping options (Expedited, Express, Overnight) are unavailable.",
+      "generated_answer": "According to our policy, certain products containing lithium-ion batteries (e.g., laptops, electronic tools, smart devices) or pressurized liquids are classified as hazardous materials (HAZMAT). Under Department of Transportation (DOT) and Federal Aviation Administration (FAA) laws, HAZMAT items can only be shipped via Ground transportation.",
+      "source_doc": "shipping_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is a direct quote from the retrieved context, without any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question, providing a clear explanation for why laptops or products with lithium-ion batteries cannot be shipped via express air methods."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved context is highly relevant and precise for answering the user question, providing specific information about HAZMAT items and their shipping restrictions."
+        }
+      }
+    },
+    {
+      "id": 13,
+      "question": "What is the warranty coverage duration for premium brand tools and appliances?",
+      "ideal_answer": "Premium brand tools and appliances are covered by a 5-Year Extended Limited Warranty covering mechanical failure, motor burnouts, and electrical faults under residential operating conditions.",
+      "generated_answer": "The warranty coverage duration for Premium Brand Tools & Appliances is 5 years, as specified in our Comprehensive Product Warranty Policy under section 2.3.",
+      "source_doc": "warranty_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 0.9,
+          "reason": "The answer is mostly grounded in the provided context, but it references the 'Comprehensive Product Warranty Policy' which is not explicitly mentioned in the context. However, the policy is mentioned in the document reference, and the answer is accurate."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The answer directly addresses the user question and provides the exact warranty coverage duration for Premium Brand Tools & Appliances."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved context is mostly relevant, but it includes sections on warranty types and coverage periods for other product classes, which are not directly related to the user question. However, the context does provide the necessary information to answer the question accurately."
+        }
+      }
+    },
+    {
+      "id": 14,
+      "question": "What specific hardware failures are covered under the standard 1-year electronics warranty?",
+      "ideal_answer": "The standard 1-year electronics warranty covers hardware failure, motherboard defects, screen malfunctions, and internal battery degradation if the capacity drops below 80% of original specification within the first year.",
+      "generated_answer": "According to our warranty policy, the standard 1-year limited warranty for electronics and smart devices covers hardware failure, motherboard defects, screen malfunctions, and internal battery degradation (if the capacity drops below 80% of original specification within the first year).",
+      "source_doc": "warranty_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is strictly based on the provided context and does not contain any external facts, assumptions, or hallucinations."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question and provides a clear and complete answer."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved context is highly relevant and precise for answering the user question, covering the specific warranty details for electronics and smart devices."
+        }
+      }
+    },
+    {
+      "id": 15,
+      "question": "Are accidental drops, water spills, or environmental damage covered under the standard warranty?",
+      "ideal_answer": "No. The standard warranty strictly excludes accidental damage, drop damage, physical abuse, neglect, improper storage, extreme temperatures, moisture, or liquid submersion.",
+      "generated_answer": "No, accidental drops, water spills, or environmental damage are not covered under the standard warranty. According to our exclusions from coverage, these types of damage are specifically excluded from warranty coverage.",
+      "source_doc": "warranty_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The Generated Answer is strictly based on the provided Context, specifically referencing the exclusions from coverage."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The Generated Answer directly addresses the User Question, providing a clear and concise answer."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved Context is mostly relevant for answering the User Question, but it could be more precise by directly mentioning the exclusions from coverage in the warranty section."
+        }
+      }
+    },
+    {
+      "id": 16,
+      "question": "How long does a customer have to register a warranty for a product received as a gift?",
+      "ideal_answer": "For gift or retail purchases, the customer must register the product online within 30 days of purchase to receive warranty coverage.",
+      "generated_answer": "For a product received as a gift, you must register the product online within 30 days of purchase.",
+      "source_doc": "warranty_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 1.0,
+          "reason": "The generated answer is strictly based on the provided context, specifically section 4.2. Retail / Gift Purchases."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question, providing the exact timeframe for registering a warranty for a product received as a gift."
+        },
+        "context_precision": {
+          "score": 1.0,
+          "reason": "The retrieved context is highly relevant and precise for answering the user question, providing the exact timeframe and registration process for gift purchases."
+        }
+      }
+    },
+    {
+      "id": 17,
+      "question": "What is the warranty coverage period for certified refurbished or open-box purchases?",
+      "ideal_answer": "Certified refurbished or open-box items purchased directly from our website are backed by a 90-Day Limited Warranty covering basic functionality.",
+      "generated_answer": "For certified refurbished or open-box items purchased directly from our website, the warranty coverage period is 90 days.",
+      "source_doc": "warranty_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 0.8,
+          "reason": "The answer is mostly grounded in the provided context, but it does not mention the specific section (2.4. Refurbished / Open Box Items) where the 90-day warranty is described."
+        },
+        "answer_relevancy": {
+          "score": 0.9,
+          "reason": "The answer directly addresses the user question and provides the relevant information."
+        },
+        "context_precision": {
+          "score": 0.7,
+          "reason": "The retrieved context is mostly relevant, but it includes some unrelated information (e.g., warranty types and coverage periods for different product classes) that is not directly related to the user question."
+        }
+      }
+    },
+    {
+      "id": 18,
+      "question": "If a warranty claim is denied and contested, what are the steps for formal dispute resolution?",
+      "ideal_answer": "The customer must first file a written appeal to appeals@ecommercegroup.com. If the dispute remains unresolved, it shall be settled exclusively through binding arbitration administered by the American Arbitration Association (AAA) in accordance with its Consumer Arbitration Rules.",
+      "generated_answer": "If a warranty claim is denied and contested, the formal dispute resolution steps are as follows:\n\n1. The customer must first file a written appeal to our claims review manager at appeals@ecommercegroup.com. This appeal must outline the specific grounds of contestation.\n2. A senior coordinator will investigate the appeal and reply with a written decision within 15 calendar days.\n\nIf a mutual agreement cannot be reached between the customer and our customer advocacy department, these formal dispute resolution procedures will govern.",
+      "source_doc": "warranty_policy.txt",
+      "metrics": {
+        "faithfulness": {
+          "score": 0.9,
+          "reason": "The generated answer is mostly grounded in the provided context, but it lacks the formal arbitration section mentioned in the context."
+        },
+        "answer_relevancy": {
+          "score": 1.0,
+          "reason": "The generated answer directly addresses the user question and provides the necessary steps for formal dispute resolution."
+        },
+        "context_precision": {
+          "score": 0.8,
+          "reason": "The retrieved context is relevant for answering the user question, but it contains some extraneous information, such as the warranty claim submission process and case studies, which are not directly related to the formal dispute resolution steps."
+        }
+      }
+    }
+  ]
+}
